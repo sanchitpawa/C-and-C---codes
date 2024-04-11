@@ -2,10 +2,7 @@
 #include <stdio.h>
 using namespace std;
 int main(){
-    int num, remainder,ctr=0;
-    int digits;
-    int i=0;
-    int j;
+    int num,i=0,j;
     char a[10][7]={"zero","one","two","three","four","five","six","seven","eight","nine"};
 
     int arr[100];
