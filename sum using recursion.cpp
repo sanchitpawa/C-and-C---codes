@@ -10,7 +10,7 @@ long int sum(int n){
 int main(){
 	long int s;
 	int n;
-	s=sum(7);
+	s=2*sum(7);
 	cout<<s;
 	return 0;
 }
