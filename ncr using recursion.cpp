@@ -13,8 +13,3 @@ int main(){
     cout<<ncr(3,2);
     return 0;
 }
-
-int main(){
-    
-    return 0;
-}

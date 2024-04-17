@@ -7,7 +7,7 @@ int main(){
 	cout<<"Enter the 2nd year:";
 	cin>>m;
 	for (i=n;i<=m;i++)
-	if (i%4==0){
+	if (i%4==0 && i%100!=0){
 		cout<<i<<"  ";
 	}
 	return 0;
