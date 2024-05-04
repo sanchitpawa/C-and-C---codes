@@ -11,7 +11,7 @@ int fib(int m){   //to print nth element of fibonacci series
         }
     }
 }
-int fibonacci(int n){  //to print fibonacci series
+void fibonacci(int n){  //to print fibonacci series
     static int t1=0,t2=1,s=0;
     if(n>0){
         if(n==7){
@@ -20,11 +20,7 @@ int fibonacci(int n){  //to print fibonacci series
             return fibonacci(n-1);
         }
         else{
-            cout<<t1+t2<<" ";
-            s=t1+t2;
-            t1=t2;
-            t2=s;
-            return fibonacci(n-1);
+            cout<<fibonacci(n-2)+fibonacci(n-1)<<" ";
         }
     }
 }
