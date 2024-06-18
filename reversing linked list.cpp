@@ -12,6 +12,21 @@ void printlist(struct node *ptr){
         ptr=ptr->next;
     }
 }
+void rev(struct node *p,int a[],int n){
+    int i=0;
+    struct node *first=p;
+    while(p!=NULL){
+        a[i]=p->data;
+        p=p->next;
+        i++;
+    }
+    p=first;
+    i--;
+    while(p!=NULL){
+        p->data=a[i--];
+        p=p->next;
+    }
+}
 int main(){
     int a[5];
     struct node *head=(struct node *)malloc(sizeof(struct node));
@@ -32,6 +47,7 @@ int main(){
     cout<<"Before Reverse"<<endl;
     printlist(head);
     cout<<endl<<"After Reverse"<<endl;
-    
+    rev(head,a,5);
+    printlist(head);
     return 0;
 }

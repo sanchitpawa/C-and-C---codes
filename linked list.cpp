@@ -31,6 +31,17 @@ struct node *middle(struct node *head,int data,int index){
     p->next=ptr;
     return head;
 }
+struct node *end(struct node *head,int data){
+    struct node *ptr=(struct node *)malloc(sizeof(struct node));
+    struct node *p=head;
+    while(p->next!=NULL){
+        p=p->next;
+    }
+    p->next=ptr;
+    ptr->next=NULL;
+    ptr->data=data;
+    return head;
+}
 int main(){
     struct node *head;
     struct node *second;
@@ -50,7 +61,7 @@ int main(){
     fourth->next=NULL;
     printlist(head);
     printf("\n");
-    head=middle(head,28,2);
+    head=end(head,28);
     printlist(head);
     return 0;
 }
