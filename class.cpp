@@ -11,11 +11,12 @@ class Rectangle{
 	}
 	int area(){
 		return length*breadth;
-	};
-	int perimeter(){
-		return 2*(length+breadth);
-	};
+	}
+	int perimeter();
 };
+int Rectangle::perimeter(){
+	return 2*(length+breadth);
+}
 int main(){
 	int l,b;
 	Rectangle r;

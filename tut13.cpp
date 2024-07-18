@@ -1,37 +1,49 @@
 #include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
+#include "Queue.cpp"
 using namespace std;
-struct node{
-    int data;
-    struct node *next;
-};
-void printlist(struct node *ptr){
-    while(ptr!=NULL){
-        printf("%d  ",ptr->data);
-        ptr=ptr->next;
+struct node *root=NULL;
+node *pretotree(int a[],int n){
+    root->lchild=root->rchild=NULL;
+    root->data=a[0];
+    node *p,*t;
+    int i=1;
+    while(i<n){
+        p=t=root;
+        while(p!=NULL){
+            if(p->data<a[i]){
+                t=p;
+                p=p->rchild;
+            }
+            else{
+                t=p;
+                p=p->lchild;
+            }
+        }
+        struct node *p=(struct node *)malloc(sizeof(struct node));
+        p->lchild=p->rchild=NULL;
+        p->data=a[i];
+        if(t->data<a[i]){
+            t->rchild=p;
+        }
+        else{
+            t->lchild=p;
+        }
+        i++;
+    }
+    return root;
+}
+void preorder(struct node *p){
+    if(p){
+        printf("%d ",p->data);
+        preorder(p->lchild);
+        preorder(p->rchild);
     }
 }
 int main(){
-    int a[5];
-    struct node *head=(struct node *)malloc(sizeof(struct node));
-    struct node *first=(struct node *)malloc(sizeof(struct node));
-    struct node *second=(struct node *)malloc(sizeof(struct node));
-    struct node *third=(struct node *)malloc(sizeof(struct node));
-    struct node *fourth=(struct node *)malloc(sizeof(struct node));
-    head->data=3;
-    head->next=first;
-    first->data=5;
-    first->next=second;
-    second->data=9;
-    second->next=third;
-    third->data=11;
-    third->next=fourth;
-    fourth->data=15;
-    fourth->next=NULL;
-    cout<<"Before Reverse"<<endl;
-    printlist(head);
-    cout<<endl<<"After Reverse"<<endl;
-    
+    int a[6]={12,7,10,15,14,20};
+    root=pretotree(a,6);
+    preorder(root);
     return 0;
 }
