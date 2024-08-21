@@ -2,13 +2,16 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "Queue.cpp"
+#include "Stack.cpp"
 using namespace std;
 struct node *root=NULL;
 node *pretotree(int a[],int n){
+    int i=0;
+    root=new node;
+    root->data=a[i++];
     root->lchild=root->rchild=NULL;
-    root->data=a[0];
-    node *p,*t;
-    int i=1;
+    node *t,*p=root;
+    //stack stk;
     while(i<n){
         p=t=root;
         while(p!=NULL){
@@ -41,9 +44,18 @@ void preorder(struct node *p){
         preorder(p->rchild);
     }
 }
+void inorder(struct node *p){
+    if(p){
+        inorder(p->lchild);
+        cout<<p->data<<" ";
+        inorder(p->rchild);
+    }
+}
 int main(){
     int a[6]={12,7,10,15,14,20};
     root=pretotree(a,6);
     preorder(root);
+    cout<<endl;
+    inorder(root);
     return 0;
 }

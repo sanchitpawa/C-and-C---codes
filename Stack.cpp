@@ -1,6 +1,6 @@
 struct stack{
     int size;
-    int *top;
+    int top;
     struct node **S;
 };
 void createstack(struct stack *st,int size){
@@ -17,7 +17,7 @@ void push(struct stack *st,struct node *x){
        st->S[st->top]=x;
     }
 }
-struct node *pop(struct stack *t){
+struct node *pop(struct stack *st){
     struct node*x=NULL;
     if(st->top==-1){
         printf("Stack Empty");
