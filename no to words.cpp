@@ -1,21 +1,30 @@
 #include <stdio.h>
+int rev(int Num){
+    int remainder,rev_Num=0;
+    while (Num != 0){
+
+        remainder = Num % 10;
+
+        rev_Num = rev_Num * 10 + remainder;
+
+        Num = Num/10;
+
+    }    
+    return rev_Num;
+}
 int main(){
-    int num,i=0,j;
+    int num,i=0,j,remainder,k=0;
     char a[10][7]={"zero","one","two","three","four","five","six","seven","eight","nine"};
-
-    int arr[100];
-
+    //int b[10];
     printf("Enter the no:");
 	scanf("%d",&num);
-
-    while (num!=0 && i<100)
-    {
-        arr[i]= num%10;
-        num = num/10;
-        i++;
-    }
+    int revnum=rev(num);
     printf("The digits are: \n");
-    for (int j = i - 1; j >= 0; j--) {
-    	printf("%s ",a[arr[j]]);
+    printf("%d",revnum);
+    while (revnum != 0){
+
+        remainder = revnum % 10;
+        revnum = revnum/10;
+        printf("%s ",a[remainder]);
     }
 }

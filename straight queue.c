@@ -1,7 +1,7 @@
-#include<iostream>
+//#include<iostream>
 #include<stdio.h>
 #include<stdlib.h>
-using namespace std;
+//using namespace std;
 struct queue{
     int size;
     int front;
@@ -10,12 +10,13 @@ struct queue{
 };
 void create(struct queue *q,int size){
     q->size=size;
-    q->Q=new int[q->size];
+    q->Q=(int *)malloc(q->size*sizeof(int));
     q->front=q->rear=-1;
 }
 void enqueue(struct queue *q,int x){
     if(q->rear==q->size-1){
-        cout<<"Queue Full";
+        //cout<<"Queue Full";
+        printf("Queue Full");
     }
     else{
         q->rear++;
@@ -25,7 +26,8 @@ void enqueue(struct queue *q,int x){
 int dequeue(struct queue *q){
     int x=-1;
     if(q->rear==q->front){
-        cout<<"Queue Empty";
+        //cout<<"Queue Empty";
+        printf("Queue Empty");
     }
     else{
         q->front++;
@@ -35,9 +37,9 @@ int dequeue(struct queue *q){
 }
 void display(struct queue q){
     for(int i=q.front+1;i<=q.rear;i++){
-        cout<<q.Q[i]<<" ";
+        printf("%d",q.Q[i]);
     }
-    cout<<endl;
+    printf("\n");
 }
 int main(){
     struct queue Q;
@@ -46,8 +48,7 @@ int main(){
     enqueue(&Q,5);
     enqueue(&Q,9);
     display(Q);
-    cout<<dequeue(&Q);
-    cout<<endl;
+    printf("%d\n",dequeue(&Q));
     display(Q);
     return 0;
 }

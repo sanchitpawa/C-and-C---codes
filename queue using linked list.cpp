@@ -5,7 +5,7 @@ using namespace std;
 struct node{
     int data;
     struct node *next;
-}*front=NULL,*rear=NULL;
+}*rear=NULL,*front=NULL,;
 
 void enqueue(int x){
     struct node *t;
